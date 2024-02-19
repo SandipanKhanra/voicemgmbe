@@ -1,0 +1,26 @@
+{
+  "name": "voicemgmbackend",
+  "version": "1.0.0",
+  "description": "Voice Management Backend",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YAS Sandipan",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "6.3",
+    "mongoose": "^8.1.1",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.9",
+    "nodemon": "^3.0.3",
+    "validator": "^13.11.0"
+  }
+}
