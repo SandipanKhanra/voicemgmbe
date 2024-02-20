@@ -7,6 +7,7 @@ const db = require("./db");
 const morgan = require("morgan");
 
 const userRouter = require("./routes/userRoutes");
+const preacherRouter = require("./routes/preacherRoutes");
 const vinmateRouter = require("./routes/vinmateRoutes");
 const globalErrorHandler = require("./controllers/errorController");
 const AppError = require("./utils/appError");
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(compression());
 // Routes
 app.use("/api/v1/vinmates", vinmateRouter);
+app.use("/api/v1/preachers", preacherRouter);
 app.use("/api/v1/users", userRouter);
 
 // Handle unimplemented routes

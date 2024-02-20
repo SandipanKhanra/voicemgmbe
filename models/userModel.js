@@ -38,7 +38,7 @@ userSchema.pre("save", async function (next) {
   if (this.isModified(this.password)) return next();
 
   // Hash the password with cost of 12
-  this.password = await bcrypt.hash(this.password, 14);
+  this.password = await bcrypt.hash(this.password, 12);
 
   // Need only for validation
   this.passwordConfirm = undefined;
@@ -70,9 +70,13 @@ userSchema.methods.createPasswordResetToken = function () {
   this.passwordResetToken = crypto
     .createHash("sha256")
     .update(resetToken)
-    .toString("hex");
+    .digest("hex");
 
+  // console.log({ resetToken }, this.passwordResetToken);
+
+  // 10 mins expiration time
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+  return resetToken;
 };
 
 const User = mongoose.model("User", userSchema);
