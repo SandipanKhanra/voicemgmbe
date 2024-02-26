@@ -8,6 +8,7 @@ const connectDB = async function () {
     console.log("DB connection successful!");
   } catch (err) {
     console.error(err.message);
+    console.log("Shutting down...");
     process.exit(1);
   }
 };
