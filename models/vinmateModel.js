@@ -42,7 +42,7 @@ const vinmateSchema = new mongoose.Schema({
     required: true,
   },
   passedOutBatch: {
-    type: Date,
+    type: String,
     required: true,
   },
   modeOfPreaching: {

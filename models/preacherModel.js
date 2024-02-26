@@ -5,13 +5,9 @@ const preacherSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please proide a name"],
   },
-  centerName: {
-    type: String,
-    required: [true, "Please provide a center name"],
-  },
   mobile: {
     type: String,
-    required: true,
+    required: [true, "Please provide a mobile"],
   },
   templeConnectedTo: {
     type: String,

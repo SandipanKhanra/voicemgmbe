@@ -35,12 +35,12 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next) {
   // Only run if password is actually modified
-  if (this.isModified(this.password)) return next();
+  if (!this.isModified("password")) return next();
 
-  // Hash the password with cost of 12
+  // Hash the password with cost of 12, which defines how strong and CPU intensive
   this.password = await bcrypt.hash(this.password, 12);
 
-  // Need only for validation
+  // Need only for validation, now no longer needed
   this.passwordConfirm = undefined;
   next();
 });
