@@ -12,7 +12,7 @@ const vinmateRouter = require("./routes/vinmateRoutes");
 const globalErrorHandler = require("./controllers/errorController");
 const AppError = require("./utils/appError");
 let corsOptions = {
-  origin: ["http://localhost:5173", "https://voice-mgm.onrender.com"],
+  origin: ["http://localhost:5173", "https://voicemgm.netlify.app"],
   methods: ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   accessControlAllowCredentials: true,
@@ -23,7 +23,6 @@ db.connectDB();
 app.use(express.json());
 
 app.use(compression());
-app.options("*", cors(corsOptions));
 // Routes
 app.use("/api/v1/vinmates", vinmateRouter);
 app.use("/api/v1/preachers", preacherRouter);
