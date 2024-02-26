@@ -24,9 +24,9 @@ app.use(express.json());
 
 app.use(compression());
 // Routes
-app.use("/api/v1/vinmates", vinmateRouter);
-app.use("/api/v1/preachers", preacherRouter);
-app.use("/api/v1/users", userRouter);
+app.options(app.use("/api/v1/vinmates", vinmateRouter), cors());
+app.options(app.use("/api/v1/preachers", preacherRouter), cors());
+app.options(app.use("/api/v1/users", userRouter), cors());
 
 // Handle unimplemented routes
 
