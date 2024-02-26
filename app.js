@@ -23,10 +23,11 @@ db.connectDB();
 app.use(express.json());
 
 app.use(compression());
+app.options('*',cors(corsOptions))
 // Routes
-app.options(app.use("/api/v1/vinmates", vinmateRouter), cors());
-app.options(app.use("/api/v1/preachers", preacherRouter), cors());
-app.options(app.use("/api/v1/users", userRouter), cors());
+app.use("/api/v1/vinmates", vinmateRouter);
+app.use("/api/v1/preachers", preacherRouter), cors());
+app.use("/api/v1/users", userRouter);
 
 // Handle unimplemented routes
 
