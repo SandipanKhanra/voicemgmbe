@@ -15,6 +15,7 @@ let corsOptions = {
   origin: ["http://localhost:5173", "https://voice-mgm.onrender.com"],
   methods: ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  accessControlAllowCredentials: true,
 };
 app.use(cors(corsOptions));
 app.use(morgan("dev"));
