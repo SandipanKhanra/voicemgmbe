@@ -11,12 +11,12 @@ const preacherRouter = require("./routes/preacherRoutes");
 const vinmateRouter = require("./routes/vinmateRoutes");
 const globalErrorHandler = require("./controllers/errorController");
 const AppError = require("./utils/appError");
-const corsOptions = {
-  origin: "https://voicemgm.netlify.app",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
+const corsOpts = {
+  origin: "*",
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
 };
-app.use(cors(corsOptions));
+app.use(cors(corsOpts));
 app.use(morgan("dev"));
 db.connectDB();
 app.use(express.json());
